@@ -1,3 +1,8 @@
+.mainWrapper {
+    max-width: 1200px;
+    display: flex;
+    justify-content:space-between;
+}
 .searchBar {
     width: 250px;
 }
@@ -19,4 +24,18 @@
 
 .albumTitleOptions {
     line-height: 0;
+}
+
+.options {
+    line-height: 2;
+}
+
+.square {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+}
+
+.chart {
+    display:block;
 }
