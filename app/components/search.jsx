@@ -5,7 +5,7 @@ import styles from '@/app/page.module.css';
 import Album from '@/app/components/album';
 
 
-export default function Search() {
+export default function Search({chartData, setChartData}) {
     const [albumResults, setAlbumResults] = useState([]);
     async function handleSubmit(e) {
         e.preventDefault();
@@ -21,7 +21,10 @@ export default function Search() {
         images.push(
             <Album
                 key={i}
-                url={albumResults[i]}/>
+                albumData={albumResults[i]}
+                chartData={chartData}
+                setChartData={setChartData}
+            />
         );
     }
 

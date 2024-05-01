@@ -5,21 +5,11 @@ const ItemTypes = {
     ALBUM: 'album'
 }
 
-export default function Album({url}) {
+export default function Album({albumData, chartData, setChartData}) {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'album',
-        item: { url },
-        end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
-            if (item && dropResult) {
-                alert(`You dropped ${item.url} into ${dropResult.name}!`)
-            }
-        },
-        collect: (monitor) => ({
-            isDragging: monitor.isDragging(),
-            handlerId: monitor.getHandlerId()
-        })
+        item: albumData,
     }));
 
-    return <img ref={drag} src={url} />
+    return <img ref={drag} src={albumData.image} />
 }

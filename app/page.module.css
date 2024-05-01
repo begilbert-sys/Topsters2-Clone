@@ -1,10 +1,11 @@
 .mainWrapper {
     max-width: 1200px;
     display: flex;
-    justify-content:space-between;
+    justify-content:flex-start;
 }
-.searchBar {
+.sideBar {
     width: 250px;
+    margin-right: 100px;
 }
 
 .goButton {
@@ -31,11 +32,25 @@
 }
 
 .square {
-    height: 150px;
-    width: 150px;
+    display:flex;
     background-color: white;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .chart {
-    display:block;
+    height:fit-content;
+    background-color:black;
+    border-style:solid;
+    border-width:2px;
+    border-color:gray;
+    padding: 30px;
+    display:flex;
+}
+
+.squareRow {
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }

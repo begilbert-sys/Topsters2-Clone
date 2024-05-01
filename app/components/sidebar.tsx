@@ -1,3 +1,5 @@
+import styles from '@/app/page.module.css';
+
 import { ChartData } from '@/app/types/chartdata';
 
 import Options from '@/app/components/options';
@@ -10,7 +12,7 @@ interface SideBarParams {
 }
 export default function SideBar({chartData, setChartData}: SideBarParams) {
     return (
-        <div>
+        <div className={styles.sideBar}>
             <div>
                 <button>New</button>
                 <button>Rename</button>
@@ -20,7 +22,10 @@ export default function SideBar({chartData, setChartData}: SideBarParams) {
                 chartData={chartData}
                 setChartData={setChartData}
             />
-            <Search />
+            <Search 
+                chartData={chartData}
+                setChartData={setChartData}
+            />
 
         </div>
 
