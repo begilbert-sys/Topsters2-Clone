@@ -10,6 +10,9 @@ export default function Search({chartData, setChartData}) {
     async function handleSubmit(e) {
         e.preventDefault();
         const albumName = e.target.albumName.value;
+        if (albumName === '') {
+            return;
+        }
         const response = await fetch(`/api?albumName=${albumName}`, {
             method: "GET"
         });

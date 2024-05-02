@@ -19,7 +19,7 @@ export default function Square({chartData, setChartData, index, size, padding}) 
             if (monitor.getItemType() === 'album') {
                 chartData.albumList[index] = item;
                 setChartData({...chartData});
-            } else if (albumData == undefined) {
+            } else if (monitor.getItemType() === 'square') {
                 swapSquares(index, item.index);
             }
         },
@@ -79,7 +79,7 @@ export default function Square({chartData, setChartData, index, size, padding}) 
             className = { styles.square } 
             data-handler-id={index}
         >
-            {(albumData != undefined && !isDragging) && (
+            {(albumData != undefined) && (
                 <img
                     style= {{margin:padding}}
                     height={size} 

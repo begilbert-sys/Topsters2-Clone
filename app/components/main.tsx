@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styles from '@/app/page.module.css';
 
-import { ChartData, defaultChartData} from '@/app/types/chartdata';
+import { ChartData, defaultChartData } from '@/app/types/chartdata';
 
 import SideBar from '@/app/components/sidebar';
 import Chart from '@/app/components/chart';
+import Download from '@/app/components/download';
 
 export default function Main() {
     const [chartData, setChartData] = useState<ChartData>(defaultChartData);
@@ -19,6 +20,7 @@ export default function Main() {
                 chartData={chartData}
                 setChartData={setChartData}
             />
+            <Download />
         </div>
     )
 }

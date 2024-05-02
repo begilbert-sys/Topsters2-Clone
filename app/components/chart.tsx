@@ -82,6 +82,14 @@ function top100(chartData: ChartData, setChartData: (cd: ChartData) => void): JS
     ]);
 }
 
+function parseBackground(background: string) {
+    if (background.startsWith('#')) {
+        return background;
+    } else {
+        return `url("${background}")`;
+    }
+}
+
 export default function Chart({chartData, setChartData}: ChartParams) {
     let layout;
     switch (chartData.size) {
@@ -98,10 +106,12 @@ export default function Chart({chartData, setChartData}: ChartParams) {
             layout = custom(chartData, setChartData);
         
     }
+
     return (
         <div 
-            style={{backgroundColor: chartData.background}}
+            style={{background: parseBackground(chartData.background)}}
             className={styles.chart}
+            id="chart"
         >
             {layout}
             <AlbumTitles

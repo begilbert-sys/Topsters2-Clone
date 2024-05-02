@@ -1,4 +1,3 @@
-import type { ChangeEvent } from 'react';
 import styles from '@/app/page.module.css';
 
 import { ChartData, ChartSize } from '@/app/types/chartdata';
@@ -28,6 +27,7 @@ function updateChartSize(chartData: ChartData, setChartData: (cd: ChartData) => 
     setChartData({...chartData});
 }
 export default function Options({chartData, setChartData}: OptionsProps) {
+
     return (
         <div className={styles.options}>
             {/*

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import styles from '@/app/page.module.css';
 
 import { ChartData } from '@/app/types/chartdata';
@@ -11,6 +13,7 @@ interface SideBarParams {
 
 }
 export default function SideBar({chartData, setChartData}: SideBarParams) {
+    const [showOptions, setShowOptions] = useState<boolean>(false);
     return (
         <div className={styles.sideBar}>
             <div>
@@ -18,10 +21,15 @@ export default function SideBar({chartData, setChartData}: SideBarParams) {
                 <button>Rename</button>
                 <button>Delete</button>
             </div>
-            <Options
-                chartData={chartData}
-                setChartData={setChartData}
-            />
+            <button onClick={() => setShowOptions(!showOptions)}>
+                {showOptions ? "Hide Options" : "Show Options"}
+            </button>
+            {showOptions && (
+                <Options
+                    chartData={chartData}
+                    setChartData={setChartData}
+                />
+            )}
             <Search 
                 chartData={chartData}
                 setChartData={setChartData}
