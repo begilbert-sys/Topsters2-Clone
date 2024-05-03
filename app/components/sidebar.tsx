@@ -6,6 +6,7 @@ import { ChartData } from '@/app/types/chartdata';
 
 import Options from '@/app/components/options';
 import Search from '@/app/components/search';
+import ChartManager from '@/app/components/chartmanager';
 
 interface SideBarParams {
     chartData: ChartData
@@ -16,11 +17,10 @@ export default function SideBar({chartData, setChartData}: SideBarParams) {
     const [showOptions, setShowOptions] = useState<boolean>(false);
     return (
         <div className={styles.sideBar}>
-            <div>
-                <button>New</button>
-                <button>Rename</button>
-                <button>Delete</button>
-            </div>
+            <ChartManager
+                chartData={chartData}
+                setChartData={setChartData}
+            />
             <button onClick={() => setShowOptions(!showOptions)}>
                 {showOptions ? "Hide Options" : "Show Options"}
             </button>

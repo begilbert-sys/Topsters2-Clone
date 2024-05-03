@@ -7,6 +7,7 @@ export interface AlbumData {
 export type ChartSize = 'Custom' | 'Top 40' | 'Top 42' | 'Top 100';
 
 export interface ChartData {
+    name: string
     albumList: (AlbumData | undefined)[]
     size: ChartSize
     titled: boolean
@@ -21,6 +22,7 @@ export interface ChartData {
 }
 
 export const defaultChartData: ChartData = {
+    name: "Untitled Chart",
     albumList: new Array(42),
     size: 'Top 42',
     titled:  false,

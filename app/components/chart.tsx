@@ -106,7 +106,7 @@ export default function Chart({chartData, setChartData}: ChartParams) {
             layout = custom(chartData, setChartData);
         
     }
-
+    console.log(chartData.albumList);
     return (
         <div 
             style={{background: parseBackground(chartData.background)}}
