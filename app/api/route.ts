@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { AlbumData } from '@/app/types/chartdata';
-
+import { headers } from "next/headers";
+const USER_AGENT = "Topsters2-Rebuilt/1.0 (begilbert238@gmail.com)";
 function getEndpoint(albumName: string) {
     return `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${albumName}&api_key=${process.env.API_KEY}&format=json`;
 }
@@ -23,8 +24,12 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     const albumName = searchParams.get('albumName') as string;
-
-    const response = await fetch(getEndpoint(albumName));
+    const response = await fetch(
+        getEndpoint(albumName), {
+            method: 'GET',
+            headers: {'User-Agent': USER_AGENT}
+        }
+    );
 
     const { results } = await response.json();
 
